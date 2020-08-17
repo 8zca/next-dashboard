@@ -1,4 +1,4 @@
-# TypeScript Next.js + styled-components example
+# Next.js dashboard sample
 
 ## 実行
 ```
