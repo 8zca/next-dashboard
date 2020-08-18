@@ -9,15 +9,15 @@ import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faChartBar, faCrown } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faChartBar, faCrown, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
 import { createStore } from '@/state/store'
 import theme from '@/styles/theme'
 
-// icon
-library.add(faHome, faChartBar, faCrown)
-
 // css
 import 'sanitize.css'
+
+// icon
+library.add(faHome, faChartBar, faCrown, faAngleDoubleRight, faAngleDoubleLeft)
 
 const store = createStore()
 
