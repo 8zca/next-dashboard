@@ -19,7 +19,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, title = 'This is the
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <div>
+      <Wrapper>
         <Nav className={wide ? 'wide' : 'narrow'}>
           <h1>
             <span className='icon'>
@@ -54,18 +54,22 @@ const Layout: React.FunctionComponent<Props> = ({ children, title = 'This is the
           </div>
         </Nav>
         <Main>{children}</Main>
-      </div>
+      </Wrapper>
     </>
   )
 }
 
 export default Layout
 
+const Wrapper = styled.div`
+  background: #f5f8fa;
+  height: 100vh;
+`
 const Nav = styled.nav`
   position: fixed;
   width: 72px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  box-shadow: 0px 4px 16px ${(props) => props.theme.colors.shadow.primary};
+  background: ${(props) => props.theme.colors.bg.contrast};
   top: 0;
   bottom: 0;
   z-index: 100;
@@ -113,7 +117,7 @@ const Nav = styled.nav`
           width: 24px;
           height: 24px;
           line-height: 24px;
-          background: rgba(43, 155, 195, 0.2);
+          background: ${(props) => props.theme.colors.bg.cyan};
           border-radius: 50%;
         }
         &:hover {

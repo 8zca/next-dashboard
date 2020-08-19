@@ -15,6 +15,7 @@ import theme from '@/styles/theme'
 
 // css
 import 'sanitize.css'
+import '@/styles/styles.scss'
 
 // icon
 library.add(faHome, faChartBar, faCrown, faAngleDoubleRight, faAngleDoubleLeft)
