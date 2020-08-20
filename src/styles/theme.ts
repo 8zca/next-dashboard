@@ -19,7 +19,8 @@ export default {
       disabled: 'rgba(0, 0, 0, 0.26)'
     },
     graph: {
-      areaBg: 'rgba(59, 198, 207, 0.2)'
+      areaBg: 'rgba(59, 198, 207, 0.2)',
+      tooltipShadow: 'rgba(70, 70, 70, 0.2)'
     }
   }
 }

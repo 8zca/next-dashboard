@@ -12,7 +12,7 @@ const SummaryGraph: React.FC = () => (
       option={makeOption()}
       notMerge={true}
       lazyUpdate={true}
-      style={{ height: '400px' }}
+      style={{ height: '280px' }}
       theme='dashboard_theme'
     />
   </Wrapper>
@@ -32,12 +32,19 @@ const makeOption = () => {
       symbol: 'none'
     }
   ]
-  const option: EChartOption ={
+  const option: EChartOption = {
+    tooltip: {
+      show: true,
+      trigger: 'axis'
+    },
     xAxis: {
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      boundaryGap: false
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      name: '売上（千円）',
+      nameGap: 40
     },
     series
   }

@@ -1,5 +1,9 @@
 import theme from '@/styles/theme'
 import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/legend'
 
 echarts.registerTheme('dashboard_theme', {
   grid: {
@@ -15,7 +19,7 @@ echarts.registerTheme('dashboard_theme', {
     }
   },
   tooltip: {
-    extraCssText: 'text-align: left; padding: 12px; line-height: 1.8; opacity: 0.9',
+    extraCssText: `text-align: left; padding: 12px; line-height: 1.8; box-shadow: 0px 2px 8px ${theme.colors.graph.tooltipShadow}`,
     backgroundColor: theme.colors.text.contrast,
     textStyle: {
       color: theme.colors.text.primary,

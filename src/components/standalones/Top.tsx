@@ -6,6 +6,7 @@ import { SummaryGraph } from '@/components/standalones'
 const Top: React.FC = () => (
   <>
     <Card className='mgb48'>
+      <p>週次売上</p>
       <SummaryGraph />
     </Card>
     <Flex justifyContent='space-between'>
