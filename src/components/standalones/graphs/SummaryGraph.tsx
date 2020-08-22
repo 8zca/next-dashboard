@@ -5,8 +5,12 @@ import ReactEchartsCore from 'echarts-for-react/lib/core'
 import echarts, { EChartOption } from 'echarts/lib/echarts'
 import './common'
 
-const SummaryGraph: React.FC = () => (
-  <Wrapper>
+type Props = {
+  className?: string
+}
+
+const SummaryGraph: React.FC<Props> = ({ className }) => (
+  <Wrapper className={className}>
     <ReactEchartsCore
       echarts={echarts}
       option={makeOption()}
@@ -21,10 +25,11 @@ const SummaryGraph: React.FC = () => (
 const makeOption = () => {
   const series: EChartOption.SeriesLine[] = [
     {
-      data: [820, 932, 901, 934, 1290, 1330, 1320],
+      data: [820, 1090, 1300, 720, 1290, 1030, 1320],
       type: 'line',
       areaStyle: {
-        color: theme.colors.graph.areaBg
+        color: theme.colors.graph.areaBg,
+        opacity: 1
       },
       lineStyle: {
         width: 0
