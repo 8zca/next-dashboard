@@ -5,7 +5,9 @@ export default {
       secondary: 'rgba(0, 0, 0, 0.54)',
       tertiary: 'rgba(0, 0, 0, 0.38)',
       disabled: 'rgba(0, 0, 0, 0.38)',
-      contrast: '#fff'
+      contrast: '#fff',
+      link: '#6fc1d3',
+      green: '#36C845'
     },
     bg: {
       cyan: 'rgba(59, 198, 207, 0.2)',
