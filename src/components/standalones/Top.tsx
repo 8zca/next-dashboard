@@ -6,6 +6,7 @@ import { SummaryGraph } from '@/components/standalones'
 
 const Top: React.FC = () => (
   <>
+    <p>トップ</p>
     <Card className='mgb48'>
       <p>週次売上</p>
       <SummaryGraph className='mgb16' />
