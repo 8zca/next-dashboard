@@ -4,7 +4,7 @@ import { Top } from '@/components/standalones'
 
 const IndexPage: React.FC = () => {
   return (
-    <Layout title='Home'>
+    <Layout title='Home - Dashboard'>
       <Top />
     </Layout>
   )

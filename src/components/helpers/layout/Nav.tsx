@@ -11,9 +11,9 @@ const Nav: React.FC = () => {
     <Wrapper className={wide ? 'wide' : 'narrow'}>
       <Title>
         <span className='icon'>
-          <FontAwesomeIcon icon='crown' />
+          <FontAwesomeIcon icon='store' />
         </span>
-        <span className='menu'>ダッシュボード</span>
+        <span className='menu'>NextStore</span>
       </Title>
       <Menu>
         <li>
@@ -28,12 +28,12 @@ const Nav: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link href='/'>
+          <Link href='/list'>
             <a>
               <span className='icon'>
-                <FontAwesomeIcon icon='chart-bar' />
+                <FontAwesomeIcon icon='list' />
               </span>
-              <span className='menu'>チャート</span>
+              <span className='menu'>商品リスト</span>
             </a>
           </Link>
         </li>

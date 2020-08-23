@@ -9,7 +9,15 @@ import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faChartBar, faCrown, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHome,
+  faList,
+  faAngleDoubleRight,
+  faAngleDoubleLeft,
+  faStore,
+  faCaretDown,
+  faCaretUp
+} from '@fortawesome/free-solid-svg-icons'
 import { createStore } from '@/state/store'
 import theme from '@/styles/theme'
 
@@ -18,7 +26,7 @@ import 'sanitize.css'
 import '@/styles/styles.scss'
 
 // icon
-library.add(faHome, faChartBar, faCrown, faAngleDoubleRight, faAngleDoubleLeft)
+library.add(faHome, faList, faStore, faAngleDoubleRight, faAngleDoubleLeft, faCaretDown, faCaretUp)
 
 const store = createStore()
 
