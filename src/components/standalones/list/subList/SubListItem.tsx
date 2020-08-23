@@ -3,31 +3,31 @@ import styled from 'styled-components'
 import { Box } from 'reflexbox/styled-components'
 
 type Props = {
-  id: number
-  order: number
+  index: number
   last: boolean
-  clickSortHandler: (order: number, up: boolean) => void
+  data: { id: number; name: string; description: string; price: number }
+  clickSortHandler: (index: number, up: boolean) => void
 }
 
-const SubListItem: React.FC<Props> = ({ id, order, last, clickSortHandler }) => {
+const SubListItem: React.FC<Props> = (props) => {
   const [status, setStatus] = useState<boolean>(true)
 
-  const upSortableClassName = order === 0 ? '' : 'sortable'
-  const downSortableClassName = last ? '' : 'sortable'
+  const upSortableClassName = props.index === 0 ? '' : 'sortable'
+  const downSortableClassName = props.last ? '' : 'sortable'
   return (
     <Wrapper className={status ? 'public' : 'private'}>
       <Order>
-        <span className={upSortableClassName} onClick={() => clickSortHandler(order, true)}>
+        <span className={upSortableClassName} onClick={() => props.clickSortHandler(props.index, true)}>
           ↑
         </span>
-        <span className={downSortableClassName} onClick={() => clickSortHandler(order, false)}>
+        <span className={downSortableClassName} onClick={() => props.clickSortHandler(props.index, false)}>
           ↓
         </span>
       </Order>
-      <Box width='100px'>{id}</Box>
-      <Box width='150px'>テスト商品{getRandomInt(1, 10000)}</Box>
-      <Box width='100px'>&yen; {(getRandomInt(100, 1000) * 100).toLocaleString()}</Box>
-      <Description>ここに説明が入ります。ここに説明が入ります。</Description>
+      <Box width='100px'>{props.data.id}</Box>
+      <Box width='150px'>{props.data.name}</Box>
+      <Box width='100px'>&yen; {props.data.price.toLocaleString()}</Box>
+      <Description>{props.data.description}</Description>
       <Edit width='40px'>削除</Edit>
       <Edit width='40px'>編集</Edit>
       <Edit width='40px' onClick={() => setStatus(!status)}>
@@ -35,12 +35,6 @@ const SubListItem: React.FC<Props> = ({ id, order, last, clickSortHandler }) => 
       </Edit>
     </Wrapper>
   )
-}
-
-const getRandomInt = (min: number, max: number) => {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min)) + min
 }
 
 export default SubListItem
