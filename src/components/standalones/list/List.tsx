@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ListItem from './ListItem'
+import { categories } from '@/data/category'
 
 const List: React.FC = () => (
   <>
@@ -10,22 +11,9 @@ const List: React.FC = () => (
 )
 
 const makeItem = () => {
-  const items = [
-    {
-      name: '家具',
-      description: '北欧デザインの家具です。'
-    },
-    {
-      name: '家電',
-      description: '北欧デザインの家電です。'
-    },
-    {
-      name: '調理器具',
-      description: '北欧デザインの調理器具です。'
-    }
-  ]
-
-  return items.map((row, index) => <ListItem name={row.name} description={row.description} key={index} />)
+  return categories.map((row, index) => (
+    <ListItem id={row.id} name={row.name} description={row.description} key={index} />
+  ))
 }
 
 export default List

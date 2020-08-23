@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SubList from './subList'
 
 type Props = {
+  id: number
   name: string
   description: string
 }
 
-const ListItem: React.FC<Props> = ({ name, description }) => {
+const ListItem: React.FC<Props> = ({ id, name, description }) => {
   const [open, setOpen] = useState<boolean>(false)
 
   return (
@@ -23,7 +24,7 @@ const ListItem: React.FC<Props> = ({ name, description }) => {
         </Toggle>
       </MainItem>
       <Expand className={open ? 'open' : 'close'}>
-        <SubList />
+        <SubList id={id} />
       </Expand>
     </Item>
   )

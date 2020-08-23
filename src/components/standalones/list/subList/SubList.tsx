@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'reflexbox/styled-components'
 import SubListItem from './SubListItem'
+import { items } from '@/data/category'
 
-const SubList: React.FC = () => {
-  const ids = [1, 2, 3, 4, 5]
+type Props = {
+  id: number
+}
 
-  // TODO: implements
-  const clickSortHandler = (_order: number, _up: boolean) => {}
+const SubList: React.FC<Props> = ({ id }) => {
+  const [data, setData] = useState(items[id])
+
+  const clickSortHandler = (index: number, up: boolean) => {
+    const tmp = data[index]
+    const tmpData = [...data]
+    if (up && index > 0) {
+      tmpData[index] = tmpData[index - 1]
+      tmpData[index - 1] = tmp
+    } else if (!up && data[index + 1]) {
+      tmpData[index] = tmpData[index + 1]
+      tmpData[index + 1] = tmp
+    }
+
+    setData(tmpData)
+  }
 
   return (
     <Wrapper>
@@ -23,12 +39,12 @@ const SubList: React.FC = () => {
         <Box width='40px' />
         <Box width='40px' />
       </li>
-      {ids.map((id, index) => (
+      {data.map((row, index) => (
         <SubListItem
-          key={id}
-          id={id}
-          order={index}
-          last={index === ids.length - 1}
+          key={row.id}
+          data={row}
+          index={index}
+          last={index === items[id].length - 1}
           clickSortHandler={clickSortHandler}
         />
       ))}
