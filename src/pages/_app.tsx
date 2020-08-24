@@ -16,7 +16,8 @@ import {
   faAngleDoubleLeft,
   faStore,
   faCaretDown,
-  faCaretUp
+  faCaretUp,
+  faTh
 } from '@fortawesome/free-solid-svg-icons'
 import { createStore } from '@/state/store'
 import theme from '@/styles/theme'
@@ -26,7 +27,7 @@ import 'sanitize.css'
 import '@/styles/styles.scss'
 
 // icon
-library.add(faHome, faList, faStore, faAngleDoubleRight, faAngleDoubleLeft, faCaretDown, faCaretUp)
+library.add(faHome, faList, faStore, faAngleDoubleRight, faAngleDoubleLeft, faCaretDown, faCaretUp, faTh)
 
 const store = createStore()
 

@@ -28,14 +28,12 @@ const SubList: React.FC<Props> = ({ id }) => {
   return (
     <Wrapper>
       <li className='header'>
-        <Box width='40px' />
+        <Box width='60px'>公開</Box>
+        <Box width='60px'>順番</Box>
         <Box width='100px'>商品ID</Box>
         <Box width='150px'>商品名</Box>
         <Box width='100px'>金額</Box>
-        <Box maxWidth='300px' flex={1}>
-          説明
-        </Box>
-        <Box width='40px' />
+        <Box flex={1}>説明</Box>
         <Box width='40px' />
         <Box width='40px' />
       </li>
@@ -59,6 +57,7 @@ const Wrapper = styled.ul`
   li {
     display: flex;
     height: 56px;
+    padding: 0 8px;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
