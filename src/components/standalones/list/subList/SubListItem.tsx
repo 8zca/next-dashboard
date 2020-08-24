@@ -16,6 +16,9 @@ const SubListItem: React.FC<Props> = (props) => {
   const downSortableClassName = props.last ? '' : 'sortable'
   return (
     <Wrapper className={status ? 'public' : 'private'}>
+      <Box width='60px' onClick={() => setStatus(!status)}>
+        <Status className={status ? 'public' : 'private'}>{status ? 'ON' : 'OFF'}</Status>
+      </Box>
       <Order>
         <span className={upSortableClassName} onClick={() => props.clickSortHandler(props.index, true)}>
           ↑
@@ -30,9 +33,6 @@ const SubListItem: React.FC<Props> = (props) => {
       <Description>{props.data.description}</Description>
       <Edit width='40px'>削除</Edit>
       <Edit width='40px'>編集</Edit>
-      <Edit width='40px' onClick={() => setStatus(!status)}>
-        <Status className={status ? 'public' : 'private'}>{status ? 'ON' : 'OFF'}</Status>
-      </Edit>
     </Wrapper>
   )
 }
@@ -40,7 +40,6 @@ const SubListItem: React.FC<Props> = (props) => {
 export default SubListItem
 
 const Wrapper = styled.li`
-  padding: 0 8px;
   border-top: 1px solid ${(props) => props.theme.colors.border.primary};
   &.private {
     color: ${(props) => props.theme.colors.action.disabled};
@@ -50,9 +49,8 @@ const Wrapper = styled.li`
   }
 `
 const Order = styled.div`
-  width: 40px;
+  width: 60px;
   color: ${(props) => props.theme.colors.action.disabled};
-
   .sortable {
     color: ${(props) => props.theme.colors.text.link};
     cursor: pointer;
@@ -67,7 +65,6 @@ const Order = styled.div`
 `
 const Description = styled(Box)`
   flex: 1;
-  max-width: 300px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -75,6 +72,7 @@ const Description = styled(Box)`
 const Edit = styled(Box)`
   color: ${(props) => props.theme.colors.text.link};
   cursor: pointer;
+  text-align: center;
   &:hover {
     opacity: 0.7;
   }
@@ -84,7 +82,7 @@ const Status = styled.span`
   padding: 0 4px;
   border-radius: 4px;
   transition: all 0.2s;
-  width: 40px;
+  width: 70%;
   text-align: center;
   color: ${(props) => props.theme.colors.text.contrast};
   &.public {

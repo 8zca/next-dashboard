@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'reflexbox/styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '@/components/helpers'
 import SubList from './subList'
 
 type Props = {
@@ -25,6 +26,10 @@ const ListItem: React.FC<Props> = ({ id, name, description }) => {
       </MainItem>
       <Expand className={open ? 'open' : 'close'}>
         <SubList id={id} />
+        <AddButton>＋</AddButton>
+        <Footer>
+          <Button>保存する</Button>
+        </Footer>
       </Expand>
     </Item>
   )
@@ -34,12 +39,12 @@ export default ListItem
 
 const Item = styled.li`
   background: ${(props) => props.theme.colors.bg.contrast};
-  padding: 0 24px;
   border-radius: 8px;
   transition: all 0.2s;
 `
 const MainItem = styled(Flex)`
   height: 72px;
+  padding: 0 24px;
 `
 const Name = styled.div`
   width: 240px;
@@ -62,11 +67,30 @@ const Expand = styled.div`
   transition: all 0.2s;
   &.open {
     display: block;
-    max-height: 400px;
+    max-height: 500px;
   }
   ul {
-    margin: 16px 16px 40px 16px;
+    margin: 16px 48px;
     padding: 0;
     list-style: none;
   }
+`
+const AddButton = styled.div`
+  border: 2px dotted ${(props) => props.theme.colors.border.primary};
+  color: ${(props) => props.theme.colors.text.tertiary};
+  height: 40px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  margin: 0 48px 24px 48px;
+  cursor: pointer;
+  &:hover {
+    background: ${(props) => props.theme.colors.border.primary};
+  }
+`
+const Footer = styled.div`
+  text-align: right;
+  padding: 24px;
+  border-top: 1px solid ${(props) => props.theme.colors.border.primary};
 `

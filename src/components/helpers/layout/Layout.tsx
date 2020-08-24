@@ -26,7 +26,6 @@ const Layout: React.FunctionComponent<Props> = ({ children, title = 'This is the
 export default Layout
 
 const Wrapper = styled.div`
-  background: #f5f8fa;
   height: 100vh;
 `
 const Main = styled.main`

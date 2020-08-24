@@ -37,6 +37,16 @@ const Nav: React.FC = () => {
             </a>
           </Link>
         </li>
+        <li>
+          <Link href='/activity'>
+            <a>
+              <span className='icon'>
+                <FontAwesomeIcon icon='th' />
+              </span>
+              <span className='menu'>売れ行き</span>
+            </a>
+          </Link>
+        </li>
       </Menu>
       <div className='expand' onClick={toggle}>
         <FontAwesomeIcon icon={`angle-double-${wide ? 'left' : 'right'}` as any} />

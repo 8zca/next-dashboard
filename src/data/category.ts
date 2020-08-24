@@ -34,7 +34,7 @@ export const items: { [key: number]: { id: number; name: string; price: number; 
       id: 3,
       name: 'レザーソファ',
       price: 54000,
-      description: '上質なブラックの色合いが特徴な2人崖ソファです。'
+      description: '上質なブラックの色合いが特徴な2人掛けソファです。'
     }
   ],
   2: [
