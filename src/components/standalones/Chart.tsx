@@ -12,13 +12,14 @@ const chartOption = {
       id: 'apexchart-example',
       toolbar: {
         show: false
-      }
+      },
+      width: '100%'
     },
     dataLabels: {
       enabled: false
     },
     xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       axisBorder: {
         show: false
       },
@@ -30,6 +31,8 @@ const chartOption = {
       }
     },
     yaxis: {
+      min: 0,
+      max: 1500,
       labels: {
         align: 'left',
         offsetX: 20,
@@ -73,7 +76,7 @@ const chartOption = {
   series: [
     {
       name: 'series-1',
-      data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+      data: [820, 1090, 1300, 720, 1290, 1030, 1320],
     }
   ]
 }

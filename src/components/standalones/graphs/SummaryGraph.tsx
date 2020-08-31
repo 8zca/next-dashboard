@@ -28,28 +28,55 @@ const makeOption = () => {
       data: [820, 1090, 1300, 720, 1290, 1030, 1320],
       type: 'line',
       areaStyle: {
-        color: theme.colors.graph.areaBg,
-        opacity: 1
+        opacity: 0.08
       },
       lineStyle: {
-        width: 0
+        color: theme.colors.text.link,
+        width: 3
       },
-      symbol: 'none'
+      symbolSize: 1,
+      itemStyle: {
+        color: theme.colors.text.link,
+        borderColor: theme.colors.text.link
+      },
+      emphasis: {
+        itemStyle: {
+          borderWidth: 3
+        }
+      }
     }
   ]
+
+  const label = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   const option: EChartOption = {
     tooltip: {
       show: true,
       trigger: 'axis'
     },
     xAxis: {
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      boundaryGap: false
+      data: label,
+      boundaryGap: false,
+      axisLabel: {
+        // 最初と最後のラベル位置を調節
+        formatter: (value: string, index: number) => {
+          if (index === 0) return `{f|${value}}`
+          if (index === label.length - 1) return `{l|${value}}`
+          return value
+        },
+        rich: {
+          f: { padding: [0, 0, 0, 24] },
+          l: { padding: [0, 24, 0, 0] }
+        },
+        fontSize: 12
+      }
     },
     yAxis: {
       type: 'value',
-      name: '売上（千円）',
-      nameGap: 40
+      axisLabel: {
+        inside: true,
+        padding: [18, 0, 0, 0],
+        formatter: (value: number) => (value === 0 ? '' : value)
+      }
     },
     series
   }

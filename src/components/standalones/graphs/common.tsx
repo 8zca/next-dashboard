@@ -9,8 +9,8 @@ echarts.registerTheme('dashboard_theme', {
   grid: {
     containLabel: false,
     top: 32,
-    left: 50,
-    right: 20,
+    left: 0,
+    right: 0,
     bottom: 20
   },
   legend: {
