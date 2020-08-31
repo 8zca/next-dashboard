@@ -11,7 +11,11 @@ const Activity: React.FC = () => {
     <>
       <p>売れ行き</p>
       <select className='mgb24'>
-        {categories.map((row) => <option value={row.id}>{row.name}</option>)}
+        {categories.map((row) => (
+          <option value={row.id} key={row.id}>
+            {row.name}
+          </option>
+        ))}
       </select>
       <Card className='mgb48'>
         <p>週次サマリ</p>
@@ -38,7 +42,6 @@ const Activity: React.FC = () => {
 }
 
 export default Activity
-
 
 const Indicator = styled.div`
   height: 46px;

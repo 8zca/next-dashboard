@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/helpers'
 import { SummaryGraph } from '@/components/standalones'
