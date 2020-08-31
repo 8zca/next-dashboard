@@ -93,9 +93,3 @@ const Chart: React.FC = () => (
 )
 
 export default Chart
-
-const Tooltip = styled.div`
-  width: 120px;
-  padding: 8px;
-  background: #fff;
-`
