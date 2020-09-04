@@ -28,7 +28,8 @@
     "react-redux": "^7.2.0",
     "reflexbox": "^4.0.6",
     "sanitize.css": "^11.0.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "swr": "^0.3.2"
   },
   "devDependencies": {
     "@types/echarts": "^4.6.4",

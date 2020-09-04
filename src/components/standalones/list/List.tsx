@@ -1,19 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useCategories } from '@/services/apis'
 import ListItem from './ListItem'
 import { categories } from '@/data/category'
 
-const List: React.FC = () => (
-  <>
-    <p>カテゴリ</p>
-    <Wrapper>{makeItem()}</Wrapper>
-  </>
-)
+type CategoryType = typeof categories[0]
 
-const makeItem = () => {
-  return categories.map((row, index) => (
-    <ListItem id={row.id} name={row.name} description={row.description} key={index} />
-  ))
+const List: React.FC = () => {
+  const { data, error } = useCategories()
+
+  if (error) return <>Error</>
+  if (!data) return <>Loading</>
+
+  return (
+    <>
+      <p>カテゴリ</p>
+      <Wrapper>{makeItem(data)}</Wrapper>
+    </>
+  )
+}
+
+const makeItem = (data: CategoryType[]) => {
+  return data.map((row, index) => <ListItem id={row.id} name={row.name} description={row.description} key={index} />)
 }
 
 export default List

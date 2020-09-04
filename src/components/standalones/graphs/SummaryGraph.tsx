@@ -34,7 +34,7 @@ const makeOption = () => {
         color: theme.colors.text.link,
         width: 3
       },
-      symbolSize: 1,
+      symbolSize: 3,
       itemStyle: {
         color: theme.colors.text.link,
         borderColor: theme.colors.text.link

@@ -19,7 +19,7 @@ const chartOption = {
       enabled: false
     },
     xaxis: {
-      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      categories: ['1月', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       axisBorder: {
         show: false
       },
@@ -33,10 +33,12 @@ const chartOption = {
     yaxis: {
       min: 0,
       max: 1500,
+      tickAmount: 4,
       labels: {
         align: 'left',
         offsetX: 20,
         offsetY: 8,
+        maxWidth: 8,
         formatter: (value: number) => (value === 0 ? '' : value)
       }
     },
