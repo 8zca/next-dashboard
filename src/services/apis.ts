@@ -1,13 +1,14 @@
 import useSWR from 'swr'
 import { categories } from '@/data/category'
-// import request from './request'
+import request from './request'
 
 type CategoryType = typeof categories[0]
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const fetcher = (url: string) => {
+  return request(url, { method: 'GET' })
+}
 
 export const useCategories = () => {
-  // const fetcher = request('/api/categories', { method: 'GET' })
-  const { data, error } = useSWR('/api/categories', fetcher)
+  const { data, error } = useSWR('/api/categories', fetcher, { refreshInterval: 0, shouldRetryOnError: false })
   return { data: data as CategoryType[], error }
 }
