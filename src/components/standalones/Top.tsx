@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Flex, Box } from 'reflexbox/styled-components'
 import { Card } from '@/components/helpers'
 import { SummaryGraph } from '@/components/standalones'
+import { useCategories } from '@/services/apis'
 
 const Top: React.FC = () => (
   <>
@@ -29,7 +30,7 @@ const Top: React.FC = () => (
     </Card>
     <Flex justifyContent='space-between'>
       <Box maxWidth='49%' flexBasis='49%'>
-        <Card>コンテンツ</Card>
+      <Card>{makeCategory()}</Card>
       </Box>
       <Box maxWidth='49%' flexBasis='49%'>
         <Card>コンテンツ</Card>
@@ -37,6 +38,20 @@ const Top: React.FC = () => (
     </Flex>
   </>
 )
+
+const makeCategory = () => {
+  const { data, error } = useCategories()
+  if (error) return <>Error</>
+  if (!data) return <>Loading</>
+
+  return (
+    <>
+      {data.map((row) => (
+        <p key={row.id}>{row.name}</p>
+      ))}
+    </>
+  )
+}
 
 export default Top
 
