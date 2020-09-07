@@ -9,6 +9,10 @@ const fetcher = (url: string) => {
 }
 
 export const useCategories = () => {
-  const { data, error } = useSWR('/api/categories', fetcher, { refreshInterval: 0, shouldRetryOnError: false })
+  const { data, error } = useSWR('/api/categories', fetcher, {
+    refreshInterval: 0,
+    shouldRetryOnError: false,
+    dedupingInterval: 60 * 10000
+  })
   return { data: data as CategoryType[], error }
 }
