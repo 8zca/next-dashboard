@@ -26,6 +26,7 @@
     "react-app-polyfill": "^1.0.6",
     "react-dom": "16.13.1",
     "react-redux": "^7.2.0",
+    "reactjs-popup": "^2.0.3",
     "reflexbox": "^4.0.6",
     "sanitize.css": "^11.0.0",
     "styled-components": "^5.1.0",

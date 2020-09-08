@@ -1,22 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'reflexbox/styled-components'
 import { categories } from '@/data/category'
-import { Card } from '@/components/helpers'
+import { Card, Select } from '@/components/helpers'
 import { SummaryGraph } from '@/components/standalones'
 
 const Activity: React.FC = () => {
-  // TODO: サマリの共通化
+  const [selected, setSelected] = useState<React.ReactText>('')
+  const options = categories.map((c) => ({ id: c.id, name: c.name }))
   return (
     <>
       <p>売れ行き</p>
-      <select className='mgb24'>
-        {categories.map((row) => (
-          <option value={row.id} key={row.id}>
-            {row.name}
-          </option>
-        ))}
-      </select>
+      <Select options={options} clickHandler={(id) => setSelected(id)} defaultId={selected} className='mgb32' />
       <Card className='mgb48'>
         <p>週次サマリ</p>
         <SummaryGraph className='mgb16' />
