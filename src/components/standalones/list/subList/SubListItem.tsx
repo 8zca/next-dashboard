@@ -6,27 +6,16 @@ type Props = {
   index: number
   last: boolean
   data: { id: number; name: string; description: string; price: number }
-  clickSortHandler: (index: number, up: boolean) => void
 }
 
 const SubListItem: React.FC<Props> = (props) => {
   const [status, setStatus] = useState<boolean>(true)
 
-  const upSortableClassName = props.index === 0 ? '' : 'sortable'
-  const downSortableClassName = props.last ? '' : 'sortable'
   return (
     <Wrapper className={status ? 'public' : 'private'}>
       <Box width='60px' onClick={() => setStatus(!status)}>
         <Status className={status ? 'public' : 'private'}>{status ? 'ON' : 'OFF'}</Status>
       </Box>
-      <Order>
-        <span className={upSortableClassName} onClick={() => props.clickSortHandler(props.index, true)}>
-          ↑
-        </span>
-        <span className={downSortableClassName} onClick={() => props.clickSortHandler(props.index, false)}>
-          ↓
-        </span>
-      </Order>
       <Box width='100px'>{props.data.id}</Box>
       <Box width='150px'>{props.data.name}</Box>
       <Box width='100px'>&yen; {props.data.price.toLocaleString()}</Box>
@@ -46,21 +35,6 @@ const Wrapper = styled.li`
   }
   &:hover {
     background: ${(props) => props.theme.colors.action.hover};
-  }
-`
-const Order = styled.div`
-  width: 60px;
-  color: ${(props) => props.theme.colors.action.disabled};
-  .sortable {
-    color: ${(props) => props.theme.colors.text.link};
-    cursor: pointer;
-    .private & {
-      color: ${(props) => props.theme.colors.action.disabled};
-      cursor: default;
-    }
-    &:hover {
-      opacity: 0.7;
-    }
   }
 `
 const Description = styled(Box)`

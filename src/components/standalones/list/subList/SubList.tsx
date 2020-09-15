@@ -3,33 +3,29 @@ import styled from 'styled-components'
 import { Box } from 'reflexbox/styled-components'
 import SubListItem from './SubListItem'
 import { items } from '@/data/category'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 type Props = {
   id: number
 }
+type ItemType = typeof items[0][0]
 
 const SubList: React.FC<Props> = ({ id }) => {
-  const [data, setData] = useState(items[id])
+  const [state, setState] = useState({ list: items[id] })
 
-  const clickSortHandler = (index: number, up: boolean) => {
-    const tmp = data[index]
-    const tmpData = [...data]
-    if (up && index > 0) {
-      tmpData[index] = tmpData[index - 1]
-      tmpData[index - 1] = tmp
-    } else if (!up && data[index + 1]) {
-      tmpData[index] = tmpData[index + 1]
-      tmpData[index + 1] = tmp
-    }
+  const onDragEnd = (result: any) => {
+    if (!result.destination) return
+    if (result.destination.index === result.source.index) return
 
-    setData(tmpData)
+    const list = reorder(state.list, result.source.index, result.destination.index)
+
+    setState({ list })
   }
 
   return (
     <Wrapper>
       <li className='header'>
         <Box width='60px'>公開</Box>
-        <Box width='60px'>順番</Box>
         <Box width='100px'>商品ID</Box>
         <Box width='150px'>商品名</Box>
         <Box width='100px'>金額</Box>
@@ -37,17 +33,34 @@ const SubList: React.FC<Props> = ({ id }) => {
         <Box width='40px' />
         <Box width='40px' />
       </li>
-      {data.map((row, index) => (
-        <SubListItem
-          key={row.id}
-          data={row}
-          index={index}
-          last={index === items[id].length - 1}
-          clickSortHandler={clickSortHandler}
-        />
-      ))}
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId='sub-list'>
+          {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              {state.list.map((row, index) => (
+                <Draggable draggableId={row.id.toString()} index={index} key={row.id}>
+                  {(providedNest) => (
+                    <div ref={providedNest.innerRef} {...providedNest.draggableProps} {...providedNest.dragHandleProps}>
+                      <SubListItem key={row.id} data={row} index={index} last={index === items[id].length - 1} />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </Wrapper>
   )
+}
+
+const reorder = (list: ItemType[], startIndex: number, endIndex: number) => {
+  const result = Array.from(list)
+  const [removed] = result.splice(startIndex, 1)
+  result.splice(endIndex, 0, removed)
+
+  return result
 }
 
 export default SubList

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, createRef } from 'react'
 import styled from 'styled-components'
 import Popup from 'reactjs-popup'
 
@@ -13,7 +13,7 @@ type Props = {
 }
 const Select: React.FC<Props> = ({ options, defaultId, className, clickHandler }) => {
   const current = options.find((row) => row.id === defaultId)
-  const ref = useRef<any>()
+  const ref = createRef<any>()
 
   return (
     <div className={className}>
