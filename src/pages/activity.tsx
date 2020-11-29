@@ -4,7 +4,7 @@ import { Activity } from '@/components/standalones'
 
 const ActivityPage: React.FC = () => {
   return (
-    <Layout title='List - Dashboard'>
+    <Layout title='List'>
       <Activity />
     </Layout>
   )

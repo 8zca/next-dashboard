@@ -4,7 +4,7 @@ import { Chart } from '@/components/standalones'
 
 const ActivityPage: React.FC = () => {
   return (
-    <Layout title='Chart - Dashboard'>
+    <Layout title='Chart'>
       <Chart />
     </Layout>
   )
