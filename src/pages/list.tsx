@@ -4,7 +4,7 @@ import { List } from '@/components/standalones'
 
 const ListPage: React.FC = () => {
   return (
-    <Layout title='List - Dashboard'>
+    <Layout title='List'>
       <List />
     </Layout>
   )

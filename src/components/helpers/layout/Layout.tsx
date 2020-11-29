@@ -11,9 +11,11 @@ const Layout: React.FunctionComponent<Props> = ({ children, title = 'This is the
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{title} - Next Dashboard</title>
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='google-site-verification' content='CnLh3-kj4Erf7O1lENLbKmikNoeyg54NM3bOwkxpKp4' />
+        <meta name='description' content='next dashboard sample' />
       </Head>
       <Wrapper>
         <Nav />

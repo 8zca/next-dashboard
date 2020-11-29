@@ -10,7 +10,7 @@ const IndexPage: React.FC = () => {
   }, [])
 
   return (
-    <Layout title='Home - Dashboard'>
+    <Layout title='Home'>
       <Top />
     </Layout>
   )
